@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="overlay">
+        <div style="margin-left: 490px; margin-bottom: 5px">
+                <!-- <h3>  </h3> -->
+                <img src="https://www.freepngimg.com/thumb/gym_equipments/41777-8-hall-of-fame-png-free-photo.png" 
+                        width="170" height="100"/>
+                <div class="dropdown2" style="margin-left: 2px">
+                    <select id="dropd1" onchange="get_star_players()">
+                        <option val="Select sub-task">Select</option>
+                    </select>
+                </div>
+        </div>
+        <div style="margin-left: 90px">
+            <div id="div1" style="display:inline-flex">
+                <div id="linechart1" width="350" height="300" style="margin-right: 20px"></div>
+                <div id="linechart2" width="350" height="300" style="margin-right: 20px"></div>
+                <div id="linechart3" width="350" height="300" style="margin-right: 20px"></div>
+            </div>
+            <br/>
+            <div id="div2" style="display:inline-flex">
+                <div id="linechart4" width="350" height="300" style="margin-right: 20px"></div>
+                <div id="linechart5" width="350" height="300" style="margin-right: 20px"></div>
+                <div id="linechart6" width="350" height="300" style="margin-right: 20px"></div>
+            </div>
+        </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/player_stats.js"></script>
+</body>
+
+</html>

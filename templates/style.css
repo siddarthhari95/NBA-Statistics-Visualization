@@ -1,0 +1,125 @@
+path {
+    stroke: #ff8c00;
+    stroke-width: 3.5;
+    fill: none;
+}
+.x.axis path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1;
+  }
+
+.y.axis line, .y.axis path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1;
+  }
+
+.dot {
+    fill: #ffD715;
+    stroke: #000;
+}
+
+.line {
+    fill: none;
+    stroke: #55e66d;
+    stroke-width: 4;
+}
+
+.tooltip{
+    position: absolute;
+    /* display: none; */
+    min-width: 80px;
+    height: auto;
+    background: #c57b05;
+    /* background: none repeat scroll 0 0 #ffffff; */
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    color: black;
+}
+
+/********** Reset Select **************/
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select */
+  .dropdown2{
+    position: relative;
+    display: flex;
+    width: 15em;
+    height: 3em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+
+  .dropdown3, .dropdown4, .dropdown5 {
+    position: relative;
+    display: flex;
+    width: 10em;
+    height: 3em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+    margin: 3px;
+  }
+
+  .dropdown5 {
+    width: 14em;
+    margin-left: 2px; 
+    margin-top: 20px;
+  }
+
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+  }
+  /* Arrow */
+  .dropdown2::after, .dropdown3::after, .dropdown4::after, .dropdown5::after{
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  /* Transition */
+  .dropdown2:hover::after, .dropdown3:hover::after, .dropdown4:hover::after .dropdown5:hover::after{
+    color: #f39c12;
+  }
+
+  .toolTip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 25px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}

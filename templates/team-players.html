@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        color: #000;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        /* .dropdown3, .dropdown4 {
+            display: inline-block;
+        } */
+
+        .okay {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        }
+
+        .okay img {
+        width: 100%;
+        height: auto;
+        }
+
+        .okay .btn {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        background-color: #FA8320;
+        color: black;
+        font-size: 16px;
+        padding: 16px 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        border-color: black;
+        text-align: center;
+        border-style:solid;
+        border-width:4px;
+        }
+
+        .okay .btn:hover {
+        background-color: orange;
+        color: white;
+        }
+
+        .input {
+            margin: 10px,
+        }
+
+        table {
+            border-collapse:collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            background-color: #ffffff;
+        }
+        caption {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body class="overlay">
+        <center>
+            <h3>Teams vs Players </h3>
+            <div>
+                <button class="btn" id="myBtn">CONFIGURE FDL</button>
+            </div>
+            <div class="TextDisplay"></div>
+        </center>
+        <div id="myModal" class="modal">
+            <div class="modal-content" style="display:inline-flex">
+                <div style="display:inline-block">
+                    <div class="dropdown3" style="margin-left: 2px">
+                        <p style="color:red"> Start </p>
+                        <!-- <label for="dropd2" style="color:red">Select Start Year</label> -->
+                        <select id="dropd2">
+                            <option val="Select">Select Start Year</option>
+                        </select>
+                    </div>
+                    <div class="dropdown4" style="margin-left: 2px">
+                        <p style="color:red"> End </p>
+                        <select id="dropd3">
+                            <option val="Select">Select End Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display:flex">
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="ATL" value="ATL">ATL<br>
+                    <br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="BOS" value="BOS">BOS<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="CHH" value="CHH">CHH<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="CHI" value="CHI">CHI<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="CLE" value="CLE">CLE<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="DAL" value="DAL">DAL<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="DEN" value="DEN">DEN<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="DET" value="DET">DET<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="GSW" value="GSW">GSW<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="HOU" value="HOU">HOU<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="IND" value="IND">IND<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="LAC" value="LAC">LAC<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="LAL" value="LAL">LAL<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="MEM" value="MEM">MEM<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="MIA" value="MIA">MIA<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="MIL" value="MIL">MIL<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="NJN" value="NJN">NJN<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="NYK" value="NYK">NYK<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="OKC" value="OKC">OKC<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="NOP" value="NOP">NOP<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="ORL" value="ORL">ORL<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="PHI" value="PHI">PHI<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="PHO" value="PHO">PHO<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="POR" value="POR">POR<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="SAC" value="SAC">SAC<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="SAS" value="SAS">SAS<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="SDC" value="SDC">SDC<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="SEA" value="SEA">SEA<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="TOR" value="TOR">TOR<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="TOT" value="TOT">TOT<br>
+                    </div>
+                    <div style="margin: 4px">
+                    <input type="checkbox" onchange="updateTeam(this)" name="UTA" value="UTA">UTA<br><br/>
+                    <input type="checkbox" onchange="updateTeam(this)" name="WAS" value="WAS">WAS<br>
+                    </div>
+                </div>
+                <div class="okay">
+                    <button class="btn" id="btn1" onclick="reload_fdl()">Okay</button>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        
+        </div>
+        <div style="margin-left: 90px">
+            <div id="div1" style="display:inline-flex">
+                <div id="fdl1" width="350" height="300" style="margin-right: 20px"></div>
+            </div>
+        </div>
+        
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/team_players.js"></script>
+</body>
+
+</html>

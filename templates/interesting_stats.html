@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"/> -->
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+        }
+        
+        /* .bar {
+            fill: #5f89ad;
+        } */
+        
+        .axis {
+            font-size: 13px;
+        }
+        
+        .axis path,
+        .axis line {
+            fill: none;
+            display: none;
+        }
+        
+        .label {
+            font-size: 13px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        color: #000;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        /* .dropdown3, .dropdown4 {
+            display: inline-block;
+        } */
+
+        .okay {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        }
+
+        .okay img {
+        width: 100%;
+        height: auto;
+        }
+
+        .okay .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        background-color: #FA8320;
+        color: black;
+        font-size: 16px;
+        padding: 16px 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        border-color: black;
+        text-align: center;
+        border-style:solid;
+            border-width:4px;
+        }
+
+        .okay .btn:hover {
+        background-color: orange;
+        color: white;
+        }
+
+        .input {
+            margin: 10px,
+        }
+
+        table {
+            border-collapse:collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Statistics over years</h2>
+        <div>
+            <button id="myBtn1">CONFIGURE DATA</button>
+        </div>
+    </center>
+    <br>
+    <div id="myModal1" class="modal">
+        <div class="modal-content" style="display: inline-flex;">
+            <div style="display: inline-flex;">
+                <div>
+                    <div class="dropdown3" style="margin-left: 2px">
+                        <p style="color:red"> Start </p>
+                        <!-- <label for="dropd2" style="color:red">Select Start Year</label> -->
+                        <select id="dropde2">
+                            <option val="Select">Select Start Year</option>
+                        </select>
+                    </div>
+                    <div class="dropdown4" style="margin-left: 2px">
+                        <p style="color:red"> End </p>
+                        <select id="dropde3">
+                            <option val="Select">Select End Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdown5">
+                    <p style="color:red"> Skill </p>
+                    <select id="dropd4">
+                        <option val="Games">Games</option>
+                        <option val="Points">Points</option>
+                        <option val="Assists">Assists</option>
+                        <option val="Off. Rebounds">Off. Rebounds</option>
+                        <option val="Def. Rebounds">Def. Rebounds</option>
+                        <option val="3 Pointers">3 Pointers</option>
+                        <option val="2 Pointers">2 Pointers</option>
+                        <option val="Field Goals">Field Goals</option>
+                        <option val="Free Throws">Free Throws</option>
+                        <option val="Steals">Steals</option>
+                    </select>
+                </div>
+                <div style="display: flex;border: solid black 2px; margin:2px;">
+                    <p>Position</p>
+                    <div style="margin:10px">
+                        <input type="checkbox" onchange="updatePosition(this)" name="PG" value="PG">Point Guard<br>
+                        <input type="checkbox" onchange="updatePosition(this)" name="SG" value="SG">Shooting Guard<br>
+                    </div>
+                    <div style="margin:10px">
+                        <input type="checkbox" onchange="updatePosition(this)" name="PF" value="PF">Power Forward<br>
+                        <input type="checkbox" onchange="updatePosition(this)" name="SF" value="SF">Small Forward<br>
+                    </div>
+                    <div style="margin:10px">
+                        <input type="checkbox" onchange="updatePosition(this)" name="C" value="C">Center<br>
+                        <!-- <input type="checkbox" onchange="updatePosition(this)" name="G" value="G">Guard<br> -->
+                    </div>
+                </div>
+                <br><br>
+                <div style="display: flex;border: solid black 2px; margin:2px;">
+                    <p>No. of rows</p>
+                    <div style="margin:10px">
+                        <input type="radio" onchange="updateDisplay(this)" name="Top" value="Top10">Top10<br>
+                    </div>
+                    <div style="margin:10px">
+                        <input type="radio" onchange="updateDisplay(this)" name="Top" value="Top25">Top25<br>
+                    </div>
+                    <div style="margin:10px">
+                        <input type="radio" onchange="updateDisplay(this)" name="Top" value="Top50">Top50<br>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="okay" style="margin-left: 50px">
+                    <button class="btn" id="btn1" onclick="reload_bar()">Okay</button>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+    </div>
+    <div class="TextDisplay"></div>
+    <div style="display: inline-flex;">
+        <div class="legend">
+            <div class="legend"></div>
+        </div>
+        <div id="graphic"></div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/interesting_stats.js"></script>
+</body>
+</html>
